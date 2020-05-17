@@ -1,9 +1,19 @@
-describe("webdriver.io page", () => {
-  it("should have the right title", () => {
+describe("Example", () => {
+  beforeEach(() => {
     browser.url("https://webdriver.io");
-    const title = browser.getTitle();
-    expect(browser).toHaveTitle(
-      "WebdriverIO · Next-gen browser and mobile automation test framework for Node.js"
-    );
+  });
+
+  it("should save some screenshots", () => {
+    browser.saveScreen("examplePaged", {});
+    browser.saveElement($("#element-id"), "firstButtonElement", {});
+    browser.saveFullPageScreen("fullPage", {});
+  });
+
+  it("should compare successful with a baseline", () => {
+    expect(browser.checkScreen("examplePaged", {})).toEqual(0);
+    expect(
+      browser.checkElement($("#element-id"), "firstButtonElement", {})
+    ).toEqual(0);
+    expect(browser.checkFullPageScreen("fullPage", {})).toEqual(0);
   });
 });

@@ -18,7 +18,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ["./test/specs/**/*.js"],
+  specs: ["./tests/specs/**/*.js"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -110,7 +110,7 @@ exports.config = {
     [
       "image-comparison",
       {
-        baselineFolder: join(process.cwd(), "./tests/sauceLabsBaseline/"),
+        baselineFolder: join(process.cwd(), "./tests/Baseline/"),
         formatImageName: "{tag}-{logName}-{width}x{height}",
         screenshotPath: join(process.cwd(), ".tmp/"),
         savePerInstance: true,
